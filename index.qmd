@@ -1,79 +1,117 @@
 ---
-title: "Primer reporte"
+title: "Laboratorio # 1"
 author: "Francisco Areyuna"
-date: "25-09-2025"
-format:
-    html:
-        embed-resources: true
+date: "27-09-2025"
+format: "html"
 ---
 
 # Titulo 1
 
-## subtitulo 2
+El propósito de este laboratorio es que cada estudiante presente al menos tres visualizaciones generadas a partir de un dataset de la página datos abiertos Ecuador. Estas visualizaciones deben ser construidas utilizando cualquier biblioteca de visualización en Python (por ejemplo, Altair, Matplotlib o Seaborn).  
+
+## 1. Importación de dataset
+
+https://datosabiertos.gob.ec/dataset/temperatura-maxima-absoluta/resource/8e27bed1-3c32-4f33-a51c-d75684097f50
+
 
 ```{python}
-#!pip install ipykernel jupyter
-#!pip install pandas altair vega_dataset
 
 import altair as alt
 
-alt.data_transformers.disable_max_rows()
+import pandas as pd
 
-from vega_datasets import data
-
-cars = data.cars()
-
-print(cars.head())
+df = pd.read_csv(r'C:\Users\usuar\Desktop\Yachay_Tech\2. Aprendizaje_Maquina\github\inamhi-temperaturamaxima-2019diciembre.csv', delimiter=';', encoding='latin-1')
 
 
+dias_meses = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic']
 
-```
+df = df.melt(
+    id_vars=['Estacion', 'NombreEstacion', 'longitud2', 'latitud2', 'altitud', 'anio'],
+    value_vars=dias_meses,
+    var_name='Mes',
+    value_name='Temperatura_Maxima_C'
+)
 
-```{python}
-cars.info()
 
-```
+df['Temperatura_Maxima_C'] = (
+    df['Temperatura_Maxima_C']
+    .str.replace(',', '.', regex=False)
+    .astype(float)
+)
 
-```{python}
-mi_grafico = alt.Chart(cars).mark_point().encode(
-    x='Miles_per_Gallon',
-    y='Horsepower',
-    tooltip=['Name', 'Origin', 'Miles_per_Gallon', 'Horsepower']
-    ).interactive()
 
-display(mi_grafico)
+df.dropna(subset=['Temperatura_Maxima_C', 'latitud2', 'longitud2'], inplace=True)
 
-print("Gráfico generado")
+
 
 ```
 
-```{python}
 
-alt.Chart(cars).mark_point(filled=True).encode(
-    x='Miles_per_Gallon',
-    y='Horsepower',
-    color='Origin',
-    tooltip=['Name', 'Origin', 'Miles_per_Gallon', 'Horsepower']
-    ).interactive()
+## 2. Vizualización de las principales estadisticas del dataset
+
+```{python}
+df.info()
 
 ```
 
-### subtitulo 3
-
-- lista
-    - elemento 1
-    - elemnto 2
-
+## 3. Grafico de lineas
 
 ```{python}
 
-alt.Chart(cars).mark_bar().encode(
-    alt.X('Origin', sort='-y'),
-    alt.Y('mean(Weight_in_lbs)'),
-    tooltip=['Origin', 'mean(Weight_in_lbs)']
+orden_meses = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic']
+
+alt.Chart(df).mark_line(point=True).encode(
+
+    x=alt.X('Mes', sort=orden_meses), 
+    
+
+    y=alt.Y('mean(Temperatura_Maxima_C)', title='Temperatura Máx. Promedio (°C)'), 
+    
+
+    tooltip=['Mes', 'mean(Temperatura_Maxima_C)']
 ).properties(
-    width=200,
-    height=200
+    title='Temperatura Máxima Promedio Mensual (General)'
+).interactive()
+
+```
+
+## 3. Grafico de barras
+
+```{python}
+
+
+alt.Chart(df).mark_bar().encode(
+
+    x=alt.X('Mes', sort=orden_meses), 
+    
+
+    y=alt.Y('mean(Temperatura_Maxima_C)', title='Temperatura Máx. Promedio (°C)'), 
+    
+
+    color=alt.Color('mean(Temperatura_Maxima_C)', scale=alt.Scale(scheme='orangered')),
+    
+    tooltip=['Mes', 'mean(Temperatura_Maxima_C)']
+).properties(
+    title='Temperatura Máxima Promedio Mensual por Mes'
+)
+
+```
+
+
+## 4. Grafico de histograma
+
+```{python}
+
+
+
+alt.Chart(df).mark_bar().encode(
+
+    x=alt.X('Temperatura_Maxima_C', bin=alt.Bin(maxbins=25), title='Temperatura Máxima (°C)'),   
+    y=alt.Y('count()', title='Frecuencia de Registros'),
+    
+    tooltip=['Temperatura_Maxima_C', 'count()']
+).properties(
+    title='Distribución General de la Temperatura Máxima (Todo el Año)'
 )
 
 
@@ -81,25 +119,27 @@ alt.Chart(cars).mark_bar().encode(
 ```
 
 
-```{python}
-alt.Chart(cars).mark_line(point=True).encode(
-    alt.X('Year'),
-    alt.Y('mean(Weight_in_lbs)'),
-    alt.Color('Origin')
+## 5. Grafico de dispersión
 
+
+```{python}
+
+
+alt.Chart(df).mark_point(filled=True, opacity=0.8).encode(
+
+    x=alt.X('altitud', title='Altitud (msnm)'), 
+    
+
+    y=alt.Y('mean(Temperatura_Maxima_C)', title='Temperatura Máxima Promedio (°C)'),
+    
+
+    color=alt.Color('Mes:N'),
+    
+
+    tooltip=['NombreEstacion', 'altitud', 'Temperatura_Maxima_C', 'Mes']
 ).properties(
-    width=600
-).interactive()
-```
-
-
-
-```{python}
-
-```
-
-```{python}
-
+    title='Temperatura Máxima Promedio vs. Altitud de las Estaciones'
+).interactive() 
 ```
 
 ```{python}
