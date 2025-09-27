@@ -10,8 +10,9 @@ format: "html"
 ## subtitulo 2
 
 ```{python}
-#!pip install vega_datasets
-#!pip install matplotlib
+#!pip install ipykernel jupyter
+#!pip install pandas altair vega_dataset
+
 import altair as alt
 
 alt.data_transformers.disable_max_rows()
@@ -60,3 +61,50 @@ alt.Chart(cars).mark_point(filled=True).encode(
 - lista
     - elemento 1
     - elemnto 2
+
+
+```{python}
+
+alt.Chart(cars).mark_bar().encode(
+    alt.X('Origin', sort='-y'),
+    alt.Y('mean(Weight_in_lbs)'),
+    tooltip=['Origin', 'mean(Weight_in_lbs)']
+).properties(
+    width=200,
+    height=200
+)
+
+
+
+```
+
+
+```{python}
+alt.Chart(cars).mark_line(point=True).encode(
+    alt.X('Year'),
+    alt.Y('mean(Weight_in_lbs)'),
+    alt.Color('Origin')
+
+).properties(
+    width=600
+).interactive()
+```
+
+
+
+```{python}
+
+```
+
+```{python}
+
+```
+
+```{python}
+
+```
+
+
+```{python}
+
+```
