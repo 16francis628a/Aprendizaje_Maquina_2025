@@ -47,7 +47,7 @@ df.dropna(subset=['Temperatura_Maxima_C', 'latitud2', 'longitud2'], inplace=True
 ```
 
 
-## 2. Vizualización de las principales estadisticas del dataset
+## 2. Vizualización de las principales caracteristicas del dataset
 
 ```{python}
 df.info()
