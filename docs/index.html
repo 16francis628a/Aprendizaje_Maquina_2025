@@ -162,6 +162,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#grafico-de-barras" id="toc-grafico-de-barras" class="nav-link" data-scroll-target="#grafico-de-barras">3. Grafico de barras</a></li>
   <li><a href="#grafico-de-histograma" id="toc-grafico-de-histograma" class="nav-link" data-scroll-target="#grafico-de-histograma">4. Grafico de histograma</a></li>
   <li><a href="#grafico-de-dispersión" id="toc-grafico-de-dispersión" class="nav-link" data-scroll-target="#grafico-de-dispersión">5. Grafico de dispersión</a></li>
+  <li><a href="#reflexion-final" id="toc-reflexion-final" class="nav-link" data-scroll-target="#reflexion-final">Reflexion final:</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -206,7 +207,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="importación-de-dataset" class="level2">
 <h2 class="anchored" data-anchor-id="importación-de-dataset">1. Importación de dataset</h2>
 <p>https://datosabiertos.gob.ec/dataset/temperatura-maxima-absoluta/resource/8e27bed1-3c32-4f33-a51c-d75684097f50</p>
-<div id="9d4805b4" class="cell" data-execution_count="1">
+<div id="02d062ea" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
@@ -239,7 +240,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="vizualización-de-las-principales-estadisticas-del-dataset" class="level2">
 <h2 class="anchored" data-anchor-id="vizualización-de-las-principales-estadisticas-del-dataset">2. Vizualización de las principales estadisticas del dataset</h2>
-<div id="f6253d90" class="cell" data-execution_count="2">
+<div id="4dbd7a78" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df.info()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -265,7 +266,7 @@ memory usage: 54.8+ KB</code></pre>
 </section>
 <section id="grafico-de-lineas" class="level2">
 <h2 class="anchored" data-anchor-id="grafico-de-lineas">3. Grafico de lineas</h2>
-<div id="52838134" class="cell" data-execution_count="3">
+<div id="9aa90abb" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>orden_meses <span class="op">=</span> [<span class="st">'ene'</span>, <span class="st">'feb'</span>, <span class="st">'mar'</span>, <span class="st">'abr'</span>, <span class="st">'may'</span>, <span class="st">'jun'</span>, <span class="st">'jul'</span>, <span class="st">'ago'</span>, <span class="st">'sep'</span>, <span class="st">'oct'</span>, <span class="st">'nov'</span>, <span class="st">'dic'</span>]</span>
@@ -286,23 +287,23 @@ memory usage: 54.8+ KB</code></pre>
 <div class="cell-output cell-output-display" data-execution_count="3">
 
 <style>
-  #altair-viz-407a39a899db4319bac90cbfa9ce04d4.vega-embed {
+  #altair-viz-3af51b206f8a45bf8a376f31e1c1f007.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-407a39a899db4319bac90cbfa9ce04d4.vega-embed details,
-  #altair-viz-407a39a899db4319bac90cbfa9ce04d4.vega-embed details summary {
+  #altair-viz-3af51b206f8a45bf8a376f31e1c1f007.vega-embed details,
+  #altair-viz-3af51b206f8a45bf8a376f31e1c1f007.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-407a39a899db4319bac90cbfa9ce04d4"></div>
+<div id="altair-viz-3af51b206f8a45bf8a376f31e1c1f007"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-407a39a899db4319bac90cbfa9ce04d4") {
-      outputDiv = document.getElementById("altair-viz-407a39a899db4319bac90cbfa9ce04d4");
+    if (outputDiv.id !== "altair-viz-3af51b206f8a45bf8a376f31e1c1f007") {
+      outputDiv = document.getElementById("altair-viz-3af51b206f8a45bf8a376f31e1c1f007");
     }
 
     const paths = {
@@ -354,10 +355,11 @@ memory usage: 54.8+ KB</code></pre>
 </script>
 </div>
 </div>
+<p>La grafica muestras que el mes de julio presenta la temperatura mas baja en el rango del dataset. Los meses de octubre, marzo y abril presentan las mayores temperaturas.</p>
 </section>
 <section id="grafico-de-barras" class="level2">
 <h2 class="anchored" data-anchor-id="grafico-de-barras">3. Grafico de barras</h2>
-<div id="4866588d" class="cell" data-execution_count="4">
+<div id="ded3c78f" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>alt.Chart(df).mark_bar().encode(</span>
@@ -378,23 +380,23 @@ memory usage: 54.8+ KB</code></pre>
 <div class="cell-output cell-output-display" data-execution_count="4">
 
 <style>
-  #altair-viz-5c0281aca84a4c5b81989cc1539ca2ba.vega-embed {
+  #altair-viz-8e0fdb9317cb4096b24432d2f8635476.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-5c0281aca84a4c5b81989cc1539ca2ba.vega-embed details,
-  #altair-viz-5c0281aca84a4c5b81989cc1539ca2ba.vega-embed details summary {
+  #altair-viz-8e0fdb9317cb4096b24432d2f8635476.vega-embed details,
+  #altair-viz-8e0fdb9317cb4096b24432d2f8635476.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-5c0281aca84a4c5b81989cc1539ca2ba"></div>
+<div id="altair-viz-8e0fdb9317cb4096b24432d2f8635476"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-5c0281aca84a4c5b81989cc1539ca2ba") {
-      outputDiv = document.getElementById("altair-viz-5c0281aca84a4c5b81989cc1539ca2ba");
+    if (outputDiv.id !== "altair-viz-8e0fdb9317cb4096b24432d2f8635476") {
+      outputDiv = document.getElementById("altair-viz-8e0fdb9317cb4096b24432d2f8635476");
     }
 
     const paths = {
@@ -449,7 +451,7 @@ memory usage: 54.8+ KB</code></pre>
 </section>
 <section id="grafico-de-histograma" class="level2">
 <h2 class="anchored" data-anchor-id="grafico-de-histograma">4. Grafico de histograma</h2>
-<div id="2478b5b4" class="cell" data-execution_count="5">
+<div id="4af0efc2" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>alt.Chart(df).mark_bar().encode(</span>
@@ -465,23 +467,23 @@ memory usage: 54.8+ KB</code></pre>
 <div class="cell-output cell-output-display" data-execution_count="5">
 
 <style>
-  #altair-viz-af43ba16ab534c438218f69299fc21cd.vega-embed {
+  #altair-viz-0be388eeb2ec454fa4ae2db9d2093453.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-af43ba16ab534c438218f69299fc21cd.vega-embed details,
-  #altair-viz-af43ba16ab534c438218f69299fc21cd.vega-embed details summary {
+  #altair-viz-0be388eeb2ec454fa4ae2db9d2093453.vega-embed details,
+  #altair-viz-0be388eeb2ec454fa4ae2db9d2093453.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-af43ba16ab534c438218f69299fc21cd"></div>
+<div id="altair-viz-0be388eeb2ec454fa4ae2db9d2093453"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-af43ba16ab534c438218f69299fc21cd") {
-      outputDiv = document.getElementById("altair-viz-af43ba16ab534c438218f69299fc21cd");
+    if (outputDiv.id !== "altair-viz-0be388eeb2ec454fa4ae2db9d2093453") {
+      outputDiv = document.getElementById("altair-viz-0be388eeb2ec454fa4ae2db9d2093453");
     }
 
     const paths = {
@@ -536,7 +538,7 @@ memory usage: 54.8+ KB</code></pre>
 </section>
 <section id="grafico-de-dispersión" class="level2">
 <h2 class="anchored" data-anchor-id="grafico-de-dispersión">5. Grafico de dispersión</h2>
-<div id="429f52e2" class="cell" data-execution_count="6">
+<div id="7a4b4fe7" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>alt.Chart(df).mark_point(filled<span class="op">=</span><span class="va">True</span>, opacity<span class="op">=</span><span class="fl">0.8</span>).encode(</span>
@@ -558,23 +560,23 @@ memory usage: 54.8+ KB</code></pre>
 <div class="cell-output cell-output-display" data-execution_count="6">
 
 <style>
-  #altair-viz-585c62f9ad174346820ab4475fa9d34b.vega-embed {
+  #altair-viz-4533f354df224d549f04471cd51b4bc4.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-585c62f9ad174346820ab4475fa9d34b.vega-embed details,
-  #altair-viz-585c62f9ad174346820ab4475fa9d34b.vega-embed details summary {
+  #altair-viz-4533f354df224d549f04471cd51b4bc4.vega-embed details,
+  #altair-viz-4533f354df224d549f04471cd51b4bc4.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-585c62f9ad174346820ab4475fa9d34b"></div>
+<div id="altair-viz-4533f354df224d549f04471cd51b4bc4"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-585c62f9ad174346820ab4475fa9d34b") {
-      outputDiv = document.getElementById("altair-viz-585c62f9ad174346820ab4475fa9d34b");
+    if (outputDiv.id !== "altair-viz-4533f354df224d549f04471cd51b4bc4") {
+      outputDiv = document.getElementById("altair-viz-4533f354df224d549f04471cd51b4bc4");
     }
 
     const paths = {
@@ -626,6 +628,13 @@ memory usage: 54.8+ KB</code></pre>
 </script>
 </div>
 </div>
+</section>
+<section id="reflexion-final" class="level2">
+<h2 class="anchored" data-anchor-id="reflexion-final">Reflexion final:</h2>
+<p>La grafica muestras que el mes de julio presenta la temperatura mas baja en el rango del dataset. Los meses de octubre, marzo y abril presentan las mayores temperaturas.</p>
+<p>Esto se visualiza en la grafica de lineas y barras.</p>
+<p>El grafico de dispersión muestra una correlación negativa entre la temperatura maxima de cada estación y la altitud.</p>
+<p>EL histograma muestra que la temperatura con mayor frecuencia es 24 y 33 °C.</p>
 
 
 </section>
