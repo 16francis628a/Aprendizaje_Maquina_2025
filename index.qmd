@@ -2,7 +2,9 @@
 title: "Primer reporte"
 author: "Francisco Areyuna"
 date: "25-09-2025"
-format: "html"
+format:
+    html:
+        embed-resources: true
 ---
 
 # Titulo 1
